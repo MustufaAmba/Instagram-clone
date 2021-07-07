@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
+.mainsection
+{
+flex:0.65;
+display: flex;
+flex-direction: column;
+}
+.sectionheader
+{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid lightgray;
+}
+.chatavatar
+{
+    margin:10px 5px 10px 20px;
+    height:50px;
+    border:1px solid lightgray;
+}
+.header_username
+{
+    position: relative;
+    margin-top:20px;
+
+}
+.headerright
+{
+    margin-left:auto ;
+    padding:15px 10px 10px 20px;
+}
+.chatareabody
+{
+    flex:1;
+    overflow: scroll;
+    overflow-x:hidden ;
+    display: flex;
+    flex-direction:column-reverse;
+}
+.mymessage
+{
+    font-family: 'Open Sans', sans-serif;
+    margin:20px;
+    padding:10px 15px 10px 15px;
+    border:1px solid lightgray;
+    background-color: #F8F8F8;
+    border-radius: 30px;
+    align-self:flex-end;
+}
+.othersmessage
+{
+    font-family: 'Open Sans', sans-serif;
+    margin:20px;
+    padding:10px 15px 10px 15px;
+    border:1px solid lightgray;
+    background-color: white;
+    border-radius: 30px;
+    align-self:flex-start;
+}
+

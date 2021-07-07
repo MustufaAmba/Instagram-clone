@@ -1,0 +1,130 @@
+.postconatiner
+{
+background-color: white;
+max-width:500px;
+border: 1px solid lightgray;
+margin:auto;
+margin-bottom: 50px;
+margin-top: 30px;
+}
+.postimg
+{
+    object-fit: contain;
+    width:100%;
+    height:300px;
+    background-color: white;
+    border-bottom: 1px solid lightgray;
+    border-top: 1px solid lightgray;
+
+}
+.avatar
+{
+    margin:20px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+.postheader
+{
+    padding-left: 10px;
+    background-color: white;
+}
+.postdetails
+{
+    padding:0 0 10px 20px;
+    background-color: white;
+
+}
+.like
+{
+    float:right;
+}
+.imgdiv
+{
+    position: relative;
+}
+.likeicon
+{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    animation: heartGorw 0.5s linear;
+    -webkit-animation: heartGrow 0.5s linear;
+}
+@keyframes heartGrow {
+    100%
+    {
+        transform: scale(5);
+        opacity: 1;
+    }
+}
+.previouscomment
+{
+    margin-left:20px;   
+}
+.comments
+{
+    background-color: white;
+    padding-bottom: 10px;
+}
+.commentsection
+{
+    display:flex;
+    margin-top: 10px;
+
+}
+.commentinput
+{
+    padding-left:20px ;
+    width:28vw;
+    height:30px;
+    border: none;
+    outline: none;
+    flex:1;
+}
+.commentbtn
+{
+    color: lightblue;
+    border: none;
+    cursor: pointer;
+    background-color:white;
+    font-weight: 600;
+    flex:0;
+}
+.commentbtn:hover{
+    color:blue;
+
+}
+@media only screen and (max-width: 1250px) {
+    .postconatiner
+{
+    margin-left:200px;
+    max-width:500px;
+}
+  }
+  @media only screen and (max-width: 1080px) {
+    .postconatiner
+{
+    margin-left:100px;
+    max-width:500px;
+}
+  }
+  @media only screen and (max-width: 950px) {
+    .postconatiner
+{
+    margin-left:50px;
+    max-width:500px;
+}
+  }
+  @media only screen and (max-width: 500px) {
+    .postconatiner
+{
+    max-width:400px;
+    margin-right:20px;
+}
+.commentinput
+{
+    width:65vw;
+}
+  }

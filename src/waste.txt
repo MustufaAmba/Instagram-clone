@@ -1,0 +1,141 @@
+<div className="upload">
+<GetUser.Provider value={user?.displayName}>{console.log(user)}
+{user?.displayName?(<Upload username={user.displayName}/>):(<h3>Sorry need to login first</h3>)}</GetUser.Provider>
+</div> 
+
+
+
+import './App.css';
+import { useState, useEffect } from 'react';
+import Header from './Header';
+import Posts from './Posts';
+import { db } from './firebase';
+import Upload from './Upload';
+import {Switch,Route} from 'react-router-dom';
+//import {Button} from '@material-ui/core';
+
+function App() {
+
+  const [post, setposts] = useState([]);
+  //const setuser = useContext(GetUser);
+  useEffect(() => {
+    db.collection("posts").orderBy('Timestamp','desc').onSnapshot(snapshot => {
+      setposts(snapshot.docs.map(doc => ({
+        id: doc.id,
+        post: doc.data()
+      })));
+    })
+  }
+    , []);
+
+
+
+  return (
+
+    <div className="App">
+      <Header />
+
+        <center>
+        {sessionStorage.getItem("currentuser")? (<Upload username={sessionStorage.getItem("currentuser")} />) : (<h3 className="uploadmsg">Sorry need to login first if logged in then referesh to upload images</h3>)}
+        </center>
+        <Switch>
+      {post.map(({ id, post }) => (
+
+        <Posts key={id} postid={id}username={post.username} url={post.url} caption={post.caption} />
+      ))}
+      </Switch>
+      
+    </div>
+
+  );
+}
+
+export default App;
+
+
+
+
+
+import React from 'react'
+import './chatarea.css'
+import Avatar from '@material-ui/core/Avatar';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import { useState } from 'react';
+import InputEmoji from 'react-input-emoji'
+
+import SentimentSatisfiedOutlinedIcon from '@material-ui/icons/SentimentSatisfiedOutlined';
+export const Chatarea = () => {
+
+    const [emojibtn,setemojibtn] = useState(1);
+    const [ text, setText ] = useState('')
+    const handleOnEnter = (text) => {
+
+      const input =document.querySelector('.chatinput');
+      input.value=text;
+
+    };
+    return (
+        <div className="mainsection">
+            
+            <div className="sectionheader">  
+            <Avatar className="chatavatar"src="https://avatars.dicebear.com/api/human/mustafa.svg" fontSize="small"/>
+            <h3 className="header_username">_mus2_amba</h3>
+            <div className="headerright">
+                <InfoOutlinedIcon fontSize="large"/>
+            </div>
+            </div>
+            <div className="chatareabody">
+            <h3>hey you</h3>
+            </div>
+            <div className="chatfooter">
+            <form>
+
+        <SentimentSatisfiedOutlinedIcon className="emojisection" onClick={()=>setemojibtn(emojibtn+1)
+            } fontSize="large"/>
+        {emojibtn%2===0?(  <InputEmoji
+          value={text}
+          onChange={setText}
+          cleanOnEnter
+          onEnter={handleOnEnter}
+          placeholder="Type a message"
+        />):(<button hidden></button>)}
+            <input  className="chatinput"type="text" placeholder="write a message..."/>
+            <input type="button" value="submit" hidden/>
+            </form>
+            </div>
+        </div>
+    )
+}
+export default Chatarea;
+
+
+
+               <Router>
+                    <Switch>
+                    <Sidebar />
+                    <Chatarea />
+                        <Route  path="/Chat/chatroom/:chatroomid">
+                            <Chatarea />
+                        </Route>
+                        <Route  path="/" component={Chatarea}>
+                        <Sidebar />
+                            <Chatarea />
+                        </Route>
+                    </Switch>
+                </Router>
+
+
+
+
+                .menu
+{
+  float: right;
+  margin-right: 20px;
+  margin:30px;
+  background-color: white;
+}
+.menu1
+{
+  position: relative;
+  bottom: -10px;
+}

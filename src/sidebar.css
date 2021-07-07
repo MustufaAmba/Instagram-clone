@@ -1,0 +1,38 @@
+.sidebar
+{
+    display: flex;
+    flex-direction: column;
+    flex:0.35;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+.sideheader
+{
+    display: flex;
+    justify-content: space-between;
+    background-color:white ;
+    border-right:1px solid lightgray;
+    border-bottom:1px solid lightgray;
+
+}
+.header_right
+{
+    padding: 15px;
+}
+.username
+{
+    margin-top:18px;
+    padding-bottom: 20px;
+    margin-left: 90px;
+}
+.sidebar_chat
+{
+    flex:1;
+}
+@media only screen and(max-height:900px)
+{
+    .header_rigth{
+        justify-content: flex-start;
+
+    }
+}
